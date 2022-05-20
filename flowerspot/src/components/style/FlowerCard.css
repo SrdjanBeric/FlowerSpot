@@ -20,6 +20,10 @@
     background-size: cover;
 }
 
+.card:hover {
+    transform: scale(1.02);
+}
+
 .content {
     display: flex;
     flex-direction: column;
