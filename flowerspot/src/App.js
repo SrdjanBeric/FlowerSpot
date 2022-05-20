@@ -25,23 +25,10 @@ function App() {
     //         .catch((error) => console.error(`Error: ${error}`));
     // };
 
-
     return (
         <div className="main-page">
             <Navigationbar />
             <HomePage />
-            {/* <ExplorePanel />
-            <FlowerContainer flowers={flowers} className="flowers-container" /> */}
-            {/* <div className="flowers-container">
-                <FlowerCard />
-                <FlowerCard />
-                <FlowerCard />
-                <FlowerCard />
-                <FlowerCard />
-                <FlowerCard />
-                <FlowerCard />
-                <FlowerCard />
-            </div> */}
         </div>
     );
 }
