@@ -1,6 +1,7 @@
 import React from "react";
 import ExplorePanel from "./components/ExplorePanel";
 import FlowerCard from "./components/FlowerCard";
+import FlowerContainer from "./components/FlowerContainer";
 import Navigationbar from "./components/Navigationbar";
 import "./components/style/Main.css";
 
@@ -9,7 +10,8 @@ function App() {
         <div className="main-page">
             <Navigationbar />
             <ExplorePanel />
-            <div className="flowers-container">
+            <FlowerContainer className="flowers-container"/>
+            {/* <div className="flowers-container">
                 <FlowerCard />
                 <FlowerCard />
                 <FlowerCard />
@@ -18,7 +20,7 @@ function App() {
                 <FlowerCard />
                 <FlowerCard />
                 <FlowerCard />
-            </div>
+            </div> */}
         </div>
     );
 }
