@@ -1,0 +1,88 @@
+.card {
+    position: relative;
+    width: 280px;
+    height: 350px;
+    background-color: rgb(234, 155, 155);
+    border-radius: 3px;
+    display: flex;
+    /* flex: 1; */
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: 
+    linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.0001) 0%,
+        rgba(0, 0, 0, 0.7) 89.5%
+    ),
+    url("../../images/flower.png");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 246px 71px 20px 72px;
+}
+
+.card-title {
+    margin-bottom: 0px;
+
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 15px;
+    /* identical to box height, or 75% */
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.card-short-description {
+    font-family: "Ubuntu";
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #ffffff;
+
+    mix-blend-mode: normal;
+    opacity: 0.7;
+}
+
+.card-button {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    border: none;
+    height: 30px;
+    width: 103px;
+
+    margin-top: 30px;
+    margin-bottom: 0px;
+
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.bookmark-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

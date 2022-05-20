@@ -1,0 +1,82 @@
+.navigation-panel {
+    background-color: transparent;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 20px 0 20px 0;
+}
+
+.company-name {
+    margin: 0 0 0 20px;
+    display: flex;
+    /* position: absolute; */
+    left: 23.67%;
+    right: 12.43%;
+    top: 26.67%;
+    bottom: 26.67%;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 14px;
+    /* identical to box height, or 70% */
+
+    color: #eaa79e;
+}
+
+.nav-button {
+    border: none;
+    background-color: transparent;
+}
+
+.right-align {
+    flex-direction: row;
+    /* align-items: space-evenly; */
+    justify-content: space-evenly;
+    display: flex;
+    flex: 1;
+    background-color: transparent;
+}
+
+.left-align {
+    margin-left: 20px;
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.login {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+
+    text-align: right;
+
+    color: #df9186 !important;
+}
+
+.new-account {
+    background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+    border-radius: 50px;
+
+    padding: 12px 22px 14px 22px;
+    
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #ffffff !important;
+}
+
+.header-text {
+  font-family: "Montserrat";
+  font-style: normal;
+  color: #949EA0;
+}
