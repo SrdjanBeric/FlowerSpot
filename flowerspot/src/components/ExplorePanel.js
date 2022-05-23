@@ -23,17 +23,17 @@ function ExplorePanel({ onSubmitSearch }) {
     // }, [searchedFlowers]);
 
     return (
-        <div className="container">
+        <div className="explore-container">
             <img className="coverImg" src={coverImg} />
-            <div className="center-content">
-                <h2 className="title">Discover flowers around you</h2>
-                <p className="description">
+            <div className="explore-content">
+                <h2 className="explore-title">Discover flowers around you</h2>
+                <p className="explore-description">
                     Explore between more than 8.427 sightings
                 </p>
                 <div className="input-area">
                     <form onSubmit={onSubmit}>
                         <input
-                            className="input-field"
+                            className="explore-input"
                             placeholder="Looking for something specific?"
                             type="text"
                             value={searchValue}

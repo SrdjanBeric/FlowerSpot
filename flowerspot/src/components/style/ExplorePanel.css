@@ -1,4 +1,4 @@
-.container {
+.explore-container {
     position: relative;
     text-align: center;
     display: flex;
@@ -12,27 +12,26 @@
     width: 100%;
 }
 
-.center-content {
+.explore-content {
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.title {
+.explore-title {
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 600;
     font-size: 40px;
     line-height: 40px;
     /* identical to box height, or 100% */
-
     text-align: center;
 
     color: #ffffff;
 }
 
-.description {
+.explore-description {
     font-family: "Playfair Display";
     font-style: normal;
     font-weight: 400;
@@ -52,7 +51,7 @@
     position: relative;
 }
 
-.input-field {
+.explore-input {
     display: block;
     height: 70px;
     width: 600px;
@@ -67,7 +66,7 @@
     line-height: 18px;
     /* identical to box height, or 100% */
     padding-left: 19px;
-
+    margin-top: 45px;
     color: #949ea0;
 }
 
