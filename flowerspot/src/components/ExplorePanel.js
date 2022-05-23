@@ -7,20 +7,11 @@ import { getSearchedFlowers } from "../apis/FlowersAPI";
 
 function ExplorePanel({ onSubmitSearch }) {
     const [searchValue, setSearchValue] = useState("");
-    // const [searchedFlowers, setSearchedFlowers] = useState([]);
 
     const onSubmit = (event) => {
         event.preventDefault();
         onSubmitSearch(searchValue);
-        // getSearchedFlowers(searchValue)?.then((resp) => {
-        // setSearchedFlowers(resp);
-        // });
     };
-
-    // useEffect(() => {
-    //     search = searchedFlowers;
-    //     console.log(searchedFlowers);
-    // }, [searchedFlowers]);
 
     return (
         <div className="explore-container">

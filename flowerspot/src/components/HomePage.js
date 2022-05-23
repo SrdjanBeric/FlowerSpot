@@ -52,13 +52,6 @@ function HomePage({ flowersData, fetchFlowers, fetchSearchFlowers }) {
             />
         </div>
     );
-    // <div>
-    //     <ExplorePanel onSubmitSearch={onSearchSubmit} />
-    //     <FlowerContainer
-    //         flowers={flowersData.flowers}
-    //         className="flowers-container"
-    //     />
-    // </div>
 }
 
 const mapStateToProps = (state) => {
