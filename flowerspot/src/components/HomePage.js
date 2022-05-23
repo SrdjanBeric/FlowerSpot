@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from "react";
 import ExplorePanel from "./ExplorePanel";
 import FlowerContainer from "./FlowerContainer";
-import axios from "axios";
+import { fetchFlowers } from "../redux/flowers/flowerActions";
 
 import { getHomePageFlowers, getSearchedFlowers } from "../apis/FlowersAPI";
+import { connect } from "react-redux";
 
-function HomePage() {
+function HomePage({ flowersData, fetchFlowers }) {
     const [flowers, setFlowers] = useState([]);
     const [previousQuery, setPreviousQuery] = useState("");
     useEffect(() => {
-        getHomePageFlowers(1)?.then((resp) => setFlowers(resp));
+        fetchFlowers();
+        console.log(flowersData.flowers);
     }, []);
 
-    useEffect(() => {}, [flowers]);
+    useEffect(() => {
+        console.log("flowers", flowers);
+    }, [flowers]);
 
     const onSearchSubmit = (query) => {
+        console.log(query);
         // Unable to search same query (or empty query) twice
         if (query.length == 0 && query !== previousQuery) {
             setPreviousQuery(query);
@@ -30,9 +35,24 @@ function HomePage() {
     return (
         <div>
             <ExplorePanel onSubmitSearch={onSearchSubmit} />
-            <FlowerContainer flowers={flowers} className="flowers-container" />
+            <FlowerContainer
+                flowers={flowersData.flowers}
+                className="flowers-container"
+            />
         </div>
     );
 }
 
-export default HomePage;
+const mapStateToProps = (state) => {
+    return {
+        flowersData: state.flower,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchFlowers: () => dispatch(fetchFlowers()),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
