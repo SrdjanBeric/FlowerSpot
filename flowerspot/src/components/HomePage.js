@@ -17,7 +17,6 @@ function HomePage({ flowersData, fetchFlowers, fetchSearchFlowers }) {
     useEffect(() => {
         fetchFlowers(pageNumber);
         setFlowers(flowersData.flowers);
-        console.log("LOADING", flowersData.loading);
     }, []);
 
     useEffect(() => {}, [flowers]);

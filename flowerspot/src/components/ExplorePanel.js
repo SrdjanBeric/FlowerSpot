@@ -23,16 +23,20 @@ function ExplorePanel({ onSubmitSearch }) {
                 </p>
                 <div className="input-area">
                     <form onSubmit={onSubmit}>
-                        <input
-                            className="explore-input"
-                            placeholder="Looking for something specific?"
-                            type="text"
-                            value={searchValue}
-                            onChange={(event) =>
-                                setSearchValue(event.target.value)
-                            }
-                        ></input>
-                        <i className="icon" src={searchIcon}></i>
+                        <div style={{ position: "relative" }}>
+                            <input
+                                className="explore-input"
+                                placeholder="Looking for something specific?"
+                                type="text"
+                                value={searchValue}
+                                onChange={(event) =>
+                                    setSearchValue(event.target.value)
+                                }
+                            ></input>
+                            <button onClick={() => onSubmit}>
+                                <img className="search-icon" src={searchIcon} />
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
