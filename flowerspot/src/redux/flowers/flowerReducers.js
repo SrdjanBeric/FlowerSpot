@@ -2,6 +2,7 @@ import {
     FETCH_FLOWERS_FAILURE,
     FETCH_FLOWERS_SUCCESS,
     FETCH_FLOWERS_REQUEST,
+    FETCH_SEARCH_FLOWERS,
 } from "./flowerTypes";
 
 const initialState = {
@@ -28,6 +29,11 @@ const reducer = (state = initialState, action) => {
                 loading: false,
                 flowers: [],
                 error: action.payload,
+            };
+        case FETCH_SEARCH_FLOWERS:
+            return {
+                ...state,
+                query: action.payload,
             };
         default:
             return state;

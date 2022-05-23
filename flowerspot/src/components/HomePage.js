@@ -1,38 +1,49 @@
 import React, { useState, useEffect } from "react";
 import ExplorePanel from "./ExplorePanel";
 import FlowerContainer from "./FlowerContainer";
-import { fetchFlowers } from "../redux/flowers/flowerActions";
+import {
+    fetchFlowers,
+    fetchSearchFlowers,
+} from "../redux/flowers/flowerActions";
 
-import { getHomePageFlowers, getSearchedFlowers } from "../apis/FlowersAPI";
+// import { getHomePageFlowers, getSearchedFlowers } from "../apis/FlowersAPI";
 import { connect } from "react-redux";
 
-function HomePage({ flowersData, fetchFlowers }) {
+function HomePage({ flowersData, fetchFlowers, fetchSearchFlowers }) {
     const [flowers, setFlowers] = useState([]);
     const [previousQuery, setPreviousQuery] = useState("");
+    const [pageNumber, setPageNumber] = useState(2);
+
     useEffect(() => {
-        fetchFlowers();
-        console.log(flowersData.flowers);
+        fetchFlowers(pageNumber);
+        setFlowers(flowersData.flowers);
+        console.log("LOADING", flowersData.loading);
     }, []);
 
-    useEffect(() => {
-        console.log("flowers", flowers);
-    }, [flowers]);
+    useEffect(() => {}, [flowers]);
 
     const onSearchSubmit = (query) => {
-        console.log(query);
         // Unable to search same query (or empty query) twice
-        if (query.length == 0 && query !== previousQuery) {
+        if (query.length === 0 && query !== previousQuery) {
             setPreviousQuery(query);
-            getHomePageFlowers(1)?.then((resp) => setFlowers(resp));
+            fetchFlowers(pageNumber);
         } else if (query !== previousQuery) {
-            getSearchedFlowers(query)?.then((resp) => {
-                setFlowers(resp);
-                setPreviousQuery(query);
-            });
+            fetchSearchFlowers(query);
+            setPreviousQuery(query);
         }
     };
 
-    return (
+    return flowersData.loading ? (
+        <div>
+            <ExplorePanel onSubmitSearch={onSearchSubmit} />
+            <h2>LOADING...</h2>
+        </div>
+    ) : flowersData.error ? (
+        <div>
+            <ExplorePanel onSubmitSearch={onSearchSubmit} />
+            <h2>{flowersData.error}</h2>
+        </div>
+    ) : (
         <div>
             <ExplorePanel onSubmitSearch={onSearchSubmit} />
             <FlowerContainer
@@ -41,6 +52,13 @@ function HomePage({ flowersData, fetchFlowers }) {
             />
         </div>
     );
+    // <div>
+    //     <ExplorePanel onSubmitSearch={onSearchSubmit} />
+    //     <FlowerContainer
+    //         flowers={flowersData.flowers}
+    //         className="flowers-container"
+    //     />
+    // </div>
 }
 
 const mapStateToProps = (state) => {
@@ -51,7 +69,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchFlowers: () => dispatch(fetchFlowers()),
+        fetchFlowers: (pageNumber) => dispatch(fetchFlowers(pageNumber)),
+        fetchSearchFlowers: (query) => dispatch(fetchSearchFlowers(query)),
     };
 };
 
