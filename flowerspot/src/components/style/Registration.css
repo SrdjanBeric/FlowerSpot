@@ -1,10 +1,6 @@
 .registration-card {
     width: 440px;
     height: 410px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
 
     background: #ffffff;
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
@@ -12,16 +8,48 @@
 }
 
 .registration-content {
-    width: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    margin: 30px 30px 30px 30px;
+    row-gap: 10px;
+}
+
+.registration-input-div {
+    position: relative;
+}
+
+.registration-input-description {
+    position: absolute;
+    top: 11px;
+    left: 15px;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 10px;
+    /* identical to box height, or 100% */
+
+    color: #949ea0;
 }
 
 .registration-input {
     height: 50px;
     width: 100%;
-
+    box-sizing: border-box;
     background: #f5f6f7;
     border: 1px solid #dfe5ea;
     border-radius: 3px;
+    padding: 12px 0px 0px 13px;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 13px;
+    /* identical to box height, or 100% */
+
+    color: #334144;
 }
 
 .registration-button {
@@ -29,7 +57,45 @@
     box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
     border-radius: 3px;
     border: none;
-
+    margin-top: 10px;
     height: 50px;
     width: 100%;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.short-input {
+    width: 185px;
+}
+
+.first-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.registration-title {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #334144;
 }
