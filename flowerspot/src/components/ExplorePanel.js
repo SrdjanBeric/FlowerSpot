@@ -33,7 +33,10 @@ function ExplorePanel({ onSubmitSearch }) {
                                     setSearchValue(event.target.value)
                                 }
                             ></input>
-                            <button onClick={() => onSubmit}>
+                            <button
+                                className="search-button"
+                                onClick={() => onSubmit}
+                            >
                                 <img className="search-icon" src={searchIcon} />
                             </button>
                         </div>

@@ -72,6 +72,14 @@
     color: #ffffff;
 }
 
+/* .registration-button:hover {
+    background: linear-gradient(270deg, #ebaea4 0%, #ea9b91 100%);
+} */
+
+.registration-button:disabled {
+    background: linear-gradient(270deg, #ebdbd8 0%, #eecac5 100%);
+}
+
 .short-input {
     width: 185px;
 }

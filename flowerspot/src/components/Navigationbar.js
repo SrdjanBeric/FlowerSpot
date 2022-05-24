@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Container } from "react-bootstrap";
 import "./style/Navigationbar.css";
 import { Modal } from "react-bootstrap";
@@ -7,7 +7,11 @@ import icon from "../images/Vector.png";
 import Registration from "./Registration";
 
 function Navigationbar() {
-    const [modalShow, setModalShow] = React.useState(false);
+    const [modalShow, setModalShow] = useState(false);
+
+    const showRegistrationModal = (visible) => {
+        setModalShow(visible);
+    };
 
     return (
         <div className="navigation-panel">
@@ -20,6 +24,7 @@ function Navigationbar() {
                 <button className="nav-button header-text">
                     Latest Sightings
                 </button>
+                <button className="nav-button header-text">Favorites</button>
                 <button className="nav-button login header-text">Login</button>
                 <button
                     onClick={() => setModalShow(true)}
@@ -35,7 +40,7 @@ function Navigationbar() {
                 show={modalShow}
                 onHide={() => setModalShow(false)}
             >
-                <Registration />
+                <Registration showModal={() => setModalShow(false)} />
             </Modal>
         </div>
     );

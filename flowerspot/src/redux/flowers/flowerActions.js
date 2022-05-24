@@ -35,7 +35,7 @@ export const searchFlowers = (query) => {
 
 export const fetchFlowers = (pageNumber) => {
     return (dispatch) => {
-        dispatch(fetchFlowersRequest);
+        dispatch(fetchFlowersRequest());
         axios
             .get(
                 `https://flowrspot-api.herokuapp.com/api/v1/flowers?page=${pageNumber}`
