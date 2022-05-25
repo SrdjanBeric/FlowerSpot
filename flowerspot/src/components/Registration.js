@@ -20,6 +20,7 @@ function Registration({ showModal, registerUser, userData }) {
             document.location.reload(true);
         } else if (!userData.loading && userData.error !== "") {
             alert(userData.error);
+            userData.error = "";
         }
     }, [userData]);
 

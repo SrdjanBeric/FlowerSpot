@@ -8,13 +8,16 @@ import profilePicture from "../images/my-profile-picture.png";
 import Registration from "./Registration";
 import { connect } from "react-redux";
 import { getMyInfo } from "../redux/user/userActions";
+import Login from "./Login";
 
 function Navigationbar({ getMyInfo, userData }) {
-    const [modalShow, setModalShow] = useState(false);
+    const [registrationShow, setRegistrationShow] = useState(false);
+    const [loginShow, setLoginShow] = useState(false);
+
     const [token, setToken] = useState("");
 
     const showRegistrationModal = (visible) => {
-        setModalShow(visible);
+        setRegistrationShow(visible);
     };
 
     useEffect(() => {
@@ -44,11 +47,14 @@ function Navigationbar({ getMyInfo, userData }) {
                     <button className="nav-button header-text">
                         Favorites
                     </button>
-                    <button className="nav-button login header-text">
+                    <button
+                        className="nav-button login header-text"
+                        onClick={() => setLoginShow(true)}
+                    >
                         Login
                     </button>
                     <button
-                        onClick={() => setModalShow(true)}
+                        onClick={() => setRegistrationShow(true)}
                         className="nav-button new-account header-text"
                     >
                         New Account
@@ -75,10 +81,19 @@ function Navigationbar({ getMyInfo, userData }) {
                 size="sm"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
-                show={modalShow}
-                onHide={() => setModalShow(false)}
+                show={registrationShow}
+                onHide={() => setRegistrationShow(false)}
             >
-                <Registration showModal={() => setModalShow(false)} />
+                <Registration showModal={() => setRegistrationShow(false)} />
+            </Modal>
+            <Modal
+                size="sm"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                show={loginShow}
+                onHide={() => setLoginShow(false)}
+            >
+                <Login showModal={() => setLoginShow(false)} />
             </Modal>
         </div>
     );

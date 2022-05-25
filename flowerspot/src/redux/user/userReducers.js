@@ -3,6 +3,8 @@ import {
     REGISTER_USER_FAILURE,
     REGISTER_USER_REQUEST,
     FETCH_MY_INFO,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE,
 } from "./userTypes";
 
 const initialState = {
@@ -39,6 +41,16 @@ const reducer = (state = initialState, action) => {
                 id: action.id,
                 first_name: action.first_name,
                 last_name: action.last_name,
+            };
+        case LOGIN_SUCCESS:
+            return {
+                ...state,
+                token: action.payload,
+            };
+        case LOGIN_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
             };
         default:
             return state;
