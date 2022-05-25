@@ -2,9 +2,10 @@ import {
     REGISTER_USER_SUCCESS,
     REGISTER_USER_FAILURE,
     REGISTER_USER_REQUEST,
+    FETCH_MY_INFO,
 } from "./userTypes";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
+import BaseApiClass from "../../apis/BaseApiClass";
 
 export const registerUserRequest = () => {
     return {
@@ -26,13 +27,38 @@ export const registerUserFailure = (error) => {
     };
 };
 
+export const getMyInfoSuccess = (id, first_name, last_name) => {
+    return {
+        type: FETCH_MY_INFO,
+        id: id,
+        first_name: first_name,
+        last_name: last_name,
+    };
+};
+
+export const getMyInfo = (token) => {
+    return (dispatch) => {
+        axios
+            .get(
+                "https://flowrspot-api.herokuapp.com/api/v1/users/me",
+                BaseApiClass.requestConfig()
+            )
+            .then((response) => {
+                const user = response.data.user;
+                dispatch(
+                    getMyInfoSuccess(user.id, user.first_name, user.last_name)
+                );
+            })
+            .catch((error) => {});
+    };
+};
+
 export const registerUser = ({
     email,
     password,
     first_name,
     last_name,
     date_of_birth,
-    close,
 }) => {
     return (dispatch) => {
         dispatch(registerUserRequest());
@@ -53,12 +79,9 @@ export const registerUser = ({
             .then((response) => {
                 const token = response?.data?.auth_token;
                 dispatch(registerUserSuccess(token));
-                document.cookie = token;
-                close();
             })
             .catch((error) => {
                 const errorMsg = error.message;
-                alert(errorMsg);
                 dispatch(registerUserFailure(errorMsg));
             });
     };

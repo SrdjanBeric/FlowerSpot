@@ -14,6 +14,16 @@ function Registration({ showModal, registerUser, userData }) {
     const [enableSubmit, setEnableSubmit] = useState(false);
 
     useEffect(() => {
+        if (!userData.loading && userData.token !== "") {
+            showModal(false);
+            localStorage.setItem("token", userData.token);
+            document.location.reload(true);
+        } else if (!userData.loading && userData.error !== "") {
+            alert(userData.error);
+        }
+    }, [userData]);
+
+    useEffect(() => {
         handleForm();
     }, [firstName]);
     useEffect(() => {
@@ -31,8 +41,8 @@ function Registration({ showModal, registerUser, userData }) {
 
     const handleForm = () => {
         if (
-            firstName.length <= 3 ||
-            lastName.length <= 3 ||
+            firstName.length < 3 ||
+            lastName.length < 3 ||
             password.length <= 8
         ) {
             setEnableSubmit(false);
@@ -49,13 +59,7 @@ function Registration({ showModal, registerUser, userData }) {
             first_name: firstName,
             last_name: lastName,
             date_of_birth: dateOfBirth,
-            close: () => showModal(false),
         });
-        // if (!userData.loading && userData.token !== "") {
-        // showModal(false);
-        // } else if (!userData.loading && userData.error !== "") {
-        //     console.log(userData.error);
-        // }
     };
 
     return (

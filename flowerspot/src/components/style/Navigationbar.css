@@ -91,3 +91,13 @@
 
     color: #949ea0;
 }
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+}
+
+.nav-button-image {
+    border: none;
+    background-color: transparent;
+}
