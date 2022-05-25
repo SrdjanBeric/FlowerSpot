@@ -9,10 +9,12 @@ import Registration from "./Registration";
 import { connect } from "react-redux";
 import { getMyInfo } from "../redux/user/userActions";
 import Login from "./Login";
+import ProfileCard from "./ProfileCard";
 
 function Navigationbar({ getMyInfo, userData }) {
     const [registrationShow, setRegistrationShow] = useState(false);
     const [loginShow, setLoginShow] = useState(false);
+    const [personalInfo, setPersonalInfo] = useState(false);
 
     const [token, setToken] = useState("");
 
@@ -69,10 +71,16 @@ function Navigationbar({ getMyInfo, userData }) {
                     <button className="nav-button header-text">
                         Favorites
                     </button>
-                    <button className="nav-button header-text">
+                    <button
+                        className="nav-button header-text"
+                        onClick={() => setPersonalInfo(true)}
+                    >
                         {userData.first_name} {userData.last_name}
                     </button>
-                    <button className="nav-button-image">
+                    <button
+                        className="nav-button-image"
+                        onClick={() => setPersonalInfo(true)}
+                    >
                         <img className="profile-image" src={profilePicture} />
                     </button>
                 </div>
@@ -94,6 +102,15 @@ function Navigationbar({ getMyInfo, userData }) {
                 onHide={() => setLoginShow(false)}
             >
                 <Login showModal={() => setLoginShow(false)} />
+            </Modal>
+            <Modal
+                size="md"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                show={personalInfo}
+                onHide={() => setPersonalInfo(false)}
+            >
+                <ProfileCard showModal={() => setPersonalInfo(false)} />
             </Modal>
         </div>
     );
