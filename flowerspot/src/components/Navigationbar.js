@@ -16,7 +16,7 @@ function Navigationbar({ getMyInfo, userData }) {
     const [loginShow, setLoginShow] = useState(false);
     const [personalInfo, setPersonalInfo] = useState(false);
 
-    const [token, setToken] = useState("");
+    const [token, setToken] = useState(null);
 
     const showRegistrationModal = (visible) => {
         setRegistrationShow(visible);
@@ -24,14 +24,15 @@ function Navigationbar({ getMyInfo, userData }) {
 
     useEffect(() => {
         setToken(localStorage.getItem("token"));
-        if (token != null) {
-            getMyInfo();
-        }
     }, []);
 
     useEffect(() => {
-        console.log("USERDATA", userData);
-    }, [userData]);
+        if (token != null) {
+            getMyInfo();
+        }
+    }, [token]);
+
+    useEffect(() => {}, [userData]);
 
     return (
         <div className="navigation-panel">
