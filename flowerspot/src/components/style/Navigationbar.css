@@ -97,6 +97,10 @@
     height: 40px;
 }
 
+.profile-image:hover {
+    transform: scale(1.02);
+}
+
 .nav-button-image {
     border: none;
     background-color: transparent;

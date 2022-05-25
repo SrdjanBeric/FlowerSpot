@@ -1,0 +1,105 @@
+.profile-card-card {
+    width: 590px;
+    height: 610px;
+
+    background: #ffffff;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+.profile-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    margin: 60px 140px 60px 100px;
+    row-gap: 30px;
+}
+
+.profile-card-text {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 13px;
+    /* identical to box height, or 72% */
+
+    color: #334144;
+}
+
+.profile-card-button {
+    background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+    border-radius: 3px;
+    border: none;
+    margin-top: 10px;
+    height: 50px;
+    width: 100%;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+
+    width: 148px;
+    height: 50px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.profile-card-image {
+    width: 80px;
+    height: 80px;
+}
+
+.profile-card-button-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.profile-card-description {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 10px;
+    /* identical to box height, or 100% */
+
+    color: #949ea0;
+
+    margin-bottom: 12px;
+}
+
+.profile-card-text-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 25px;
+    /* identical to box height, or 100% */
+    color: #334144;
+    margin-bottom: 20px;
+}
+
+.profile-card-sightings {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 13px;
+    /* identical to box height, or 100% */
+
+    color: #949ea0;
+
+    margin-top: 6px;
+}
