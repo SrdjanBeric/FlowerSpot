@@ -7,6 +7,8 @@
 .flower-profile-picture {
     width: 280px;
     height: 350px;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .flower-details-cover {
@@ -130,8 +132,10 @@
 .flower-detail-long-description {
     display: flex;
     flex: 5;
+    align-items: center;
     margin-right: 120px;
     margin-left: 50px;
+    height: 100%;
 }
 
 .flower-detail-long-description-text {
@@ -159,4 +163,6 @@
 
     color: #949ea0;
     margin-left: 20px;
+    margin-bottom: 0px;
+    height: 100%;
 }

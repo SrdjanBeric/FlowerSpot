@@ -1,42 +1,33 @@
 import {
-    FETCH_FLOWERS_FAILURE,
-    FETCH_FLOWERS_SUCCESS,
-    FETCH_FLOWERS_REQUEST,
-    FETCH_SEARCH_FLOWERS,
     FETCH_FLOWER_REQUEST,
     FETCH_FLOWER_SUCCESS,
     FETCH_FLOWER_FAILURE,
-} from "./flowerTypes";
+} from "./singleFlowerTypes";
 
 const initialState = {
     loading: false,
-    flowers: [],
+    flower: null,
     error: "",
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_FLOWERS_REQUEST:
+        case FETCH_FLOWER_REQUEST:
             return {
                 ...state,
                 loading: true,
             };
-        case FETCH_FLOWERS_SUCCESS:
+        case FETCH_FLOWER_SUCCESS:
             return {
                 loading: false,
-                flowers: action.payload,
+                flower: action.payload,
                 error: "",
             };
-        case FETCH_FLOWERS_FAILURE:
+        case FETCH_FLOWER_FAILURE:
             return {
                 loading: false,
-                flowers: [],
+                flower: null,
                 error: action.payload,
-            };
-        case FETCH_SEARCH_FLOWERS:
-            return {
-                ...state,
-                query: action.payload,
             };
         default:
             return state;

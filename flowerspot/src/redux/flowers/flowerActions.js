@@ -3,6 +3,9 @@ import {
     FETCH_FLOWERS_SUCCESS,
     FETCH_FLOWERS_REQUEST,
     FETCH_SEARCH_FLOWERS,
+    FETCH_FLOWER_REQUEST,
+    FETCH_FLOWER_SUCCESS,
+    FETCH_FLOWER_FAILURE,
 } from "./flowerTypes";
 import axios from "axios";
 
