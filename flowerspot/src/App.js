@@ -18,8 +18,8 @@ function App() {
     return (
         <Provider store={store}>
             <div className="main-page">
-                <Navigationbar />
                 <Router>
+                    <Navigationbar />
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/flower/:id" element={<FlowerDetails />} />

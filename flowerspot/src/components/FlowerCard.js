@@ -1,17 +1,15 @@
 import React from "react";
 import "./style/FlowerCard.css";
 import bookmark from "../images/bookmark.png";
+import { useNavigate } from "react-router-dom";
 
-function FlowerCard(props) {
-    const id = props.info.id;
-    const favorite = props.info.favorite;
-    const latin_name = props.info.latin_name;
-    const name = props.info.name;
-    const sightings = props.info.sightings;
-    const profile_picture = props.info.profile_picture;
+function FlowerCard({ info }) {
+    const navigate = useNavigate();
+    console.log("PROPS", info);
+    const { id, favorite, latin_name, name, sightings, profile_picture } = info;
 
     const clickHandler = () => {
-        console.log(latin_name, id);
+        navigate(`/flower/${id}`);
     };
 
     return (

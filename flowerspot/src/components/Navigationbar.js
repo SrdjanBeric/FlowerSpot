@@ -10,8 +10,11 @@ import { connect } from "react-redux";
 import { getMyInfo } from "../redux/user/userActions";
 import Login from "./Login";
 import ProfileCard from "./ProfileCard";
+import { useNavigate } from "react-router-dom";
 
 function Navigationbar({ getMyInfo, userData }) {
+    const navigate = useNavigate();
+
     const [registrationShow, setRegistrationShow] = useState(false);
     const [loginShow, setLoginShow] = useState(false);
     const [personalInfo, setPersonalInfo] = useState(false);
@@ -36,7 +39,7 @@ function Navigationbar({ getMyInfo, userData }) {
 
     return (
         <div className="navigation-panel">
-            <div className="left-align">
+            <div className="left-align" onClick={() => navigate("/")}>
                 <img src={icon} />
                 <h1 className="company-name header-text">FlowerSpot</h1>
             </div>
