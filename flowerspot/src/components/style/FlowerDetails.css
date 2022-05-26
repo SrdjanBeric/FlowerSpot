@@ -1,0 +1,162 @@
+.flower-details-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
+.flower-profile-picture {
+    width: 280px;
+    height: 350px;
+}
+
+.flower-details-cover {
+    height: 100%;
+    width: 100%;
+}
+
+.flower-detail-header {
+    position: absolute;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    top: 50px;
+    left: 20px;
+    width: 100%;
+}
+
+.flower-detail-left-align {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+}
+
+.flower-detail-right-align {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.flower-detail-add-new-sighting-button {
+    background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+    border-radius: 3px;
+    width: 188px;
+    height: 50px;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #ffffff;
+
+    border: none;
+    margin-top: 100px;
+    margin-left: 150px;
+}
+
+.flower-detail-cover-info {
+    padding-left: 30px;
+}
+
+.flower-detail-name {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 35px;
+    line-height: 35px;
+    /* identical to box height, or 100% */
+    margin-left: 20px;
+    color: #ffffff;
+}
+
+.flower-detail-latin {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+
+    color: #ffffff;
+
+    mix-blend-mode: normal;
+    opacity: 0.7;
+    margin-left: 20px;
+}
+
+.flower-detail-bookmark-icon {
+    width: 70px;
+}
+
+.flower-detail-bookmark-sighting {
+    display: flex;
+    flex-direction: row;
+}
+
+.flower-detail-sighting-button {
+    margin-top: 14px;
+
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: none;
+    width: 103px;
+    height: 30px;
+
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.flower-details-upper-content {
+    position: relative;
+}
+
+.flower-detail-long-description {
+    display: flex;
+    flex: 5;
+    margin-right: 120px;
+    margin-left: 50px;
+}
+
+.flower-detail-long-description-text {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    /* or 154% */
+
+    text-align: justify;
+
+    color: #949ea0;
+}
+
+.flower-detail-feature {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 25px;
+    /* or 192% */
+
+    text-align: justify;
+
+    color: #949ea0;
+    margin-left: 20px;
+}

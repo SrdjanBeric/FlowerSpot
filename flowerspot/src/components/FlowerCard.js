@@ -1,7 +1,6 @@
 import React from "react";
 import "./style/FlowerCard.css";
 import bookmark from "../images/bookmark.png";
-import FlowerBackground from "../images/flower.png";
 
 function FlowerCard(props) {
     const id = props.info.id;
@@ -11,8 +10,13 @@ function FlowerCard(props) {
     const sightings = props.info.sightings;
     const profile_picture = props.info.profile_picture;
 
+    const clickHandler = () => {
+        console.log(latin_name, id);
+    };
+
     return (
         <div
+            onClick={clickHandler}
             className="card"
             style={{
                 backgroundImage: `linear-gradient(
@@ -23,8 +27,8 @@ function FlowerCard(props) {
             url(${profile_picture})`,
             }}
         >
-            <div className="bookmark-icon">
-                <img src={bookmark} />
+            <div className="bookmark-icon-div">
+                <img className="bookmark-icon" src={bookmark} />
             </div>
             <div className="content">
                 <h3 className="card-title">{name}</h3>
