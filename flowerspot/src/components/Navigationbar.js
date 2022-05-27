@@ -41,7 +41,10 @@ function Navigationbar({ getMyInfo, userData }) {
         <div className="navigation-panel">
             <div className="left-align" onClick={() => navigate("/")}>
                 <img src={icon} />
-                <h1 className="company-name header-text">FlowerSpot</h1>
+                <button className="company-name header-button">
+                    FlowerSpot
+                </button>
+                {/* <h1 className="company-name header-text">FlowerSpot</h1> */}
             </div>
 
             {userData.id === "" ? (

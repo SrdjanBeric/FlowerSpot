@@ -26,6 +26,12 @@
     /* identical to box height, or 70% */
 
     color: #eaa79e !important;
+    border: none;
+    background-color: transparent;
+}
+
+.navigation-icon:hover {
+    transform: scale(1.01);
 }
 
 .nav-button {

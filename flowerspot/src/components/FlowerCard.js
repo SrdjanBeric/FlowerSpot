@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 function FlowerCard({ info }) {
     const navigate = useNavigate();
-    console.log("PROPS", info);
     const { id, favorite, latin_name, name, sightings, profile_picture } = info;
 
     const clickHandler = () => {

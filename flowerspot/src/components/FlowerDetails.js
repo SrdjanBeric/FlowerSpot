@@ -11,14 +11,8 @@ function FlowerDetails({ flowerData, fetchFlower }) {
 
     useEffect(() => {
         fetchFlower(id);
-        if (flowerData.flower != null) {
-            console.log("FLOWER", flowerData.flower.profile_picture);
-        }
     }, []);
 
-    // useEffect(() => {
-    //     // console.log("FLOWER IMAGE", flowerData.flower.profile_picture);
-    // }, [flowerData.flower]);
     if (flowerData.flower != null) {
         return (
             <div className="flower-details-content">
