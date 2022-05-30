@@ -44,6 +44,10 @@
     height: 50px;
 }
 
+.report-sighting:hover {
+    transform: scale(1.02);
+}
+
 .view-on-google-maps {
     background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
     box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
@@ -62,6 +66,10 @@
 
     height: 50px;
     width: 200px;
+}
+
+.view-on-google-maps:hover {
+    transform: scale(1.02);
 }
 
 .gradient-background {
