@@ -40,12 +40,22 @@ function SightingDetails({ fetchSighting, sightingData }) {
         setUser(sightingData?.sighting?.user);
     }, [sightingData.sighting]);
 
+    const googleMapsClick = (event) => {
+        window.open(
+            `https://maps.google.com/?q=${sightingData?.sighting?.latitude},${sightingData?.sighting?.longitude}`,
+            "_blank"
+        );
+    };
+
     if (sightingData.sighting != null) {
         return (
             <div className="sighting-details-content">
                 <div id="map" className="map map-div">
                     <div className="view-on-google-and-report">
-                        <button className="view-on-google-maps">
+                        <button
+                            onClick={googleMapsClick}
+                            className="view-on-google-maps"
+                        >
                             View on Google Maps
                         </button>
                         <button className="report-sighting">Report</button>
