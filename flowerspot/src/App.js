@@ -11,8 +11,8 @@ import {
     Routes,
     Navigate,
 } from "react-router-dom";
-import Registration from "./components/Registration";
 import FlowerDetails from "./components/FlowerDetails";
+import SightingDetails from "./components/SightingDetails";
 
 function App() {
     return (
@@ -23,6 +23,10 @@ function App() {
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/flower/:id" element={<FlowerDetails />} />
+                        <Route
+                            path="/sighting/:id"
+                            element={<SightingDetails />}
+                        />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </Router>
