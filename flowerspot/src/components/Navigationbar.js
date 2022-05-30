@@ -53,9 +53,6 @@ function Navigationbar({ getMyInfo, userData }) {
                     <button className="nav-button header-text">
                         Latest Sightings
                     </button>
-                    <button className="nav-button header-text">
-                        Favorites
-                    </button>
                     <button
                         className="nav-button login header-text"
                         onClick={() => setLoginShow(true)}

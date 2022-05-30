@@ -1,10 +1,196 @@
 .sighting-details-content {
     display: flex;
     flex-direction: column;
-    row-gap: 50px;
+    align-items: center;
+    position: relative;
 }
 
 #map {
     width: 100%;
     height: 400px;
+}
+
+.map-div {
+    position: relative;
+    z-index: 0;
+}
+
+.view-on-google-and-report {
+    position: absolute;
+    right: 20px;
+    top: 244px;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+}
+
+.report-sighting {
+    background: #ffffff;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #df9186;
+    border: none;
+    width: 110px;
+    height: 50px;
+}
+
+.view-on-google-maps {
+    background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+    border-radius: 3px;
+    border: none;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #ffffff;
+
+    height: 50px;
+    width: 200px;
+}
+
+.gradient-background {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(249, 249, 249, 0.0001) 0%,
+        #f9f9f9 100%
+    );
+    top: 0px;
+    z-index: 1;
+}
+
+.sighting-info-card {
+    position: absolute;
+    top: 324px;
+    height: 350px;
+    width: 1180px;
+    background: #ffffff;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+    column-gap: 50px;
+    padding: 72px 100px 72px 30px;
+}
+
+.sighting-details-image {
+    width: 290px;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 3px;
+    display: flex;
+}
+
+.sighting-info-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.sighting-info-content-header {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.sighting-info-content-header-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.sighting-info-content-flower {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 25px;
+    /* identical to box height, or 100% */
+
+    color: #334144;
+    margin: 0;
+}
+
+.sighting-info-content-owner {
+    font-family: "Ubuntu";
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+
+    color: #949ea0;
+}
+
+.sighting-info-content-description {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    /* or 154% */
+
+    text-align: justify;
+
+    color: #949ea0;
+
+    margin-top: 20px;
+    width: 710px;
+    height: 90px;
+    display: block;
+    overflow: hidden;
+    height: 100%;
+}
+
+.sighting-info-content-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.action-icons {
+    width: 15px;
+    object-fit: scale-down;
+}
+
+.sighting-details-single-action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    /* identical to box height, or 100% */
+
+    text-align: justify;
+
+    color: #949ea0;
 }

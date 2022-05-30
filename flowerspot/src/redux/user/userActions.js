@@ -65,7 +65,11 @@ export const getMyInfo = (token) => {
                     getMyInfoSuccess(user.id, user.first_name, user.last_name)
                 );
             })
-            .catch((error) => {});
+            .catch((error) => {
+                const errorMsg = error.response.data.error;
+                dispatch(loginFailure(errorMsg));
+                localStorage.removeItem("token");
+            });
     };
 };
 
