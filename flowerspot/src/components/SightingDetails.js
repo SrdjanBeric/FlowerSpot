@@ -126,7 +126,7 @@ function SightingDetails({
                     <hr></hr>
                     <div className="comments-number-and-add-comment">
                         <p className="sighting-details-comments-number">
-                            14 Comments
+                            {sightingData?.sighting?.comments_count} Comments
                         </p>
                         {!!userData.id && (
                             <button
