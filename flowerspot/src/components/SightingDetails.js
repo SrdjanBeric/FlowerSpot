@@ -19,9 +19,15 @@ import commentIcon from "../images/comment.png";
 import favoriteIcon from "../images/favorite.png";
 import { connect } from "react-redux";
 import { fetchSighting } from "../redux/sighting/sightingActions";
+import { fetchComments } from "../redux/comments/commentActions";
 import CommentContainer from "./CommentContainer";
 
-function SightingDetails({ fetchSighting, sightingData }) {
+function SightingDetails({
+    fetchSighting,
+    sightingData,
+    fetchComments,
+    commentsData,
+}) {
     let { id } = useParams();
 
     const [flower, setFlower] = useState(null);
@@ -29,6 +35,7 @@ function SightingDetails({ fetchSighting, sightingData }) {
 
     useEffect(() => {
         fetchSighting(id);
+        fetchComments(id, 1);
     }, []);
 
     useEffect(() => {
@@ -116,7 +123,7 @@ function SightingDetails({ fetchSighting, sightingData }) {
                         </button>
                     </div>
                     <div className="sighting-details-comments">
-                        <CommentContainer />
+                        <CommentContainer comments={commentsData?.comments} />
                     </div>
                 </div>
             </div>
@@ -173,12 +180,14 @@ function SightingDetails({ fetchSighting, sightingData }) {
 const mapStateToProps = (state) => {
     return {
         sightingData: state.sighting,
+        commentsData: state.comments,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchSighting: (id) => dispatch(fetchSighting(id)),
+        fetchComments: (id, page) => dispatch(fetchComments(id, page)),
     };
 };
 

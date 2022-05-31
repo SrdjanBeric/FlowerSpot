@@ -36,12 +36,10 @@ export const fetchSighting = (id) => {
                 BaseApiClass.requestConfig()
             )
             .then((response) => {
-                console.log("RESPONSE", response);
                 const sighting = response.data.sighting;
                 dispatch(fetchSightingSuccess(sighting));
             })
             .catch((error) => {
-                console.log("ERROR", error);
                 const errorMsg = error.response.data.error;
                 dispatch(fetchSightingError(errorMsg));
             });
