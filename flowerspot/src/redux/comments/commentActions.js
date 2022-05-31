@@ -2,6 +2,7 @@ import {
     FETCH_COMMENTS_REQUEST,
     FETCH_COMMENTS_SUCCESS,
     FETCH_COMMENTS_FAILURE,
+    ADD_COMMENT,
 } from "./commentTypes";
 import axios from "axios";
 import BaseApiClass from "../../apis/BaseApiClass";
@@ -23,6 +24,13 @@ export const fetchCommentsFailure = (error) => {
     return {
         type: FETCH_COMMENTS_FAILURE,
         payload: error,
+    };
+};
+
+export const addComment = (comment) => {
+    return {
+        type: ADD_COMMENT,
+        payload: comment,
     };
 };
 

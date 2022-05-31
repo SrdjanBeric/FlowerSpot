@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { postComment } from "../apis/CommentsApi";
+import { addComment } from "../redux/comments/commentActions";
 import "./style/WriteComment.css";
 
-function WriteComment({ sightingId, userData, inputFocus }) {
+function WriteComment({ sightingId, userData, addComment, inputFocus }) {
     const [text, setText] = useState("");
     const [publishEnable, setPublishEnable] = useState(false);
     const commentArea = useRef(null);
@@ -24,10 +25,11 @@ function WriteComment({ sightingId, userData, inputFocus }) {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        postComment(text, sightingId)?.then(
-            (response) => console.log(response),
-            setText("")
-        );
+        postComment(text, sightingId)?.then((response) => {
+            const comment = response.data.comment;
+            addComment(comment);
+            setText("");
+        });
     };
     return (
         <div className="write-comment-component">
@@ -57,4 +59,10 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(WriteComment);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addComment: (comment) => dispatch(addComment(comment)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WriteComment);

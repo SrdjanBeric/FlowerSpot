@@ -2,6 +2,7 @@ import {
     FETCH_COMMENTS_REQUEST,
     FETCH_COMMENTS_SUCCESS,
     FETCH_COMMENTS_FAILURE,
+    ADD_COMMENT,
 } from "./commentTypes";
 
 const initialState = {
@@ -28,6 +29,11 @@ const reducer = (state = initialState, action) => {
                 loading: false,
                 comments: null,
                 error: action.payload,
+            };
+        case ADD_COMMENT:
+            return {
+                ...state,
+                comments: [...state.comments, action.payload],
             };
         default:
             return state;
