@@ -21,12 +21,14 @@ import { connect } from "react-redux";
 import { fetchSighting } from "../redux/sighting/sightingActions";
 import { fetchComments } from "../redux/comments/commentActions";
 import CommentContainer from "./CommentContainer";
+import WriteComment from "./WriteComment";
 
 function SightingDetails({
     fetchSighting,
     sightingData,
     fetchComments,
     commentsData,
+    userData,
 }) {
     let { id } = useParams();
 
@@ -118,13 +120,20 @@ function SightingDetails({
                         <p className="sighting-details-comments-number">
                             14 Comments
                         </p>
-                        <button className="sighting-details-add-comment">
-                            Add Comment
-                        </button>
+                        {!!userData.id && (
+                            <button className="sighting-details-add-comment">
+                                Add Comment
+                            </button>
+                        )}
                     </div>
                     <div className="sighting-details-comments">
                         <CommentContainer comments={commentsData?.comments} />
                     </div>
+                    {!!userData.id && (
+                        <div className="write-comment-div">
+                            <WriteComment sightingId={id} />
+                        </div>
+                    )}
                 </div>
             </div>
         );
@@ -181,6 +190,7 @@ const mapStateToProps = (state) => {
     return {
         sightingData: state.sighting,
         commentsData: state.comments,
+        userData: state.user,
     };
 };
 

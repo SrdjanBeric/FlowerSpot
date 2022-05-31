@@ -252,3 +252,7 @@
 .sighting-details-add-comment:hover {
     transform: scale(1.02);
 }
+
+.write-comment-div {
+    margin-top: 30px;
+}

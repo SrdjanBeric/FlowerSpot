@@ -1,0 +1,69 @@
+.write-comment-component {
+    width: 100%;
+    position: relative;
+}
+
+.comment-textarea {
+    width: 100%;
+    background: #f5f6f7;
+    border: 1px solid #dfe5ea;
+    border-radius: 3px;
+
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    /* or 133% */
+
+    color: #334144;
+    height: 150px;
+
+    padding: 30px 20px 40px 20px;
+}
+
+.comment-placeholder {
+    position: absolute;
+    top: 13px;
+    left: 21px;
+
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    /* identical to box height, or 118% */
+
+    color: #949ea0;
+}
+
+.publish-comment-button {
+    background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+    border-radius: 3px;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #ffffff;
+    border: none;
+    width: 160px;
+    height: 50px;
+
+    float: right;
+    margin-top: 20px;
+}
+
+.publish-comment-button:hover {
+    transform: scale(1.02);
+}
+
+.publish-comment-button:disabled {
+    background: linear-gradient(270deg, #ebdbd8 0%, #eecac5 100%);
+    transform: scale(1);
+}
