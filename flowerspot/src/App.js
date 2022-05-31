@@ -15,6 +15,8 @@ import FlowerDetails from "./components/FlowerDetails";
 import SightingDetails from "./components/SightingDetails";
 import Comment from "./components/Comment";
 import WriteComment from "./components/WriteComment";
+import SightingCard from "./components/SightingCard";
+import SightingList from "./components/SightingList";
 
 function App() {
     return (
@@ -29,7 +31,7 @@ function App() {
                             path="/sighting/:id"
                             element={<SightingDetails />}
                         />
-                        <Route path="/write" element={<WriteComment />} />
+                        <Route path="/sightings" element={<SightingList />} />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </Router>

@@ -50,7 +50,10 @@ function Navigationbar({ getMyInfo, userData }) {
             {userData.id === "" ? (
                 <div className="right-align">
                     <button className="nav-button header-text">Flowers</button>
-                    <button className="nav-button header-text">
+                    <button
+                        onClick={() => navigate("/sightings")}
+                        className="nav-button header-text"
+                    >
                         Latest Sightings
                     </button>
                     <button
@@ -69,7 +72,10 @@ function Navigationbar({ getMyInfo, userData }) {
             ) : (
                 <div className="right-align">
                     <button className="nav-button header-text">Flowers</button>
-                    <button className="nav-button header-text">
+                    <button
+                        onClick={() => navigate("/sightings")}
+                        className="nav-button header-text"
+                    >
                         Latest Sightings
                     </button>
                     <button className="nav-button header-text">

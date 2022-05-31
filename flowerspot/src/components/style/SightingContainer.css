@@ -1,0 +1,9 @@
+.sighting-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    /* justify-content: space-evenly; */
+    /* justify-content: flex-start; */
+    flex-wrap: wrap;
+    gap: 20px;
+}

@@ -1,0 +1,102 @@
+.sighting-card {
+    width: 280px;
+    height: 500px;
+    background: #ffffff;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sighting-card-image {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+}
+
+.sighting-card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sighting-card-flower-name {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
+    /* identical to box height, or 100% */
+
+    color: #334144;
+    margin: 0;
+    margin-bottom: 3px;
+}
+
+.sighting-card-owner {
+    font-family: "Ubuntu";
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    /* identical to box height, or 100% */
+
+    color: #949ea0;
+    margin: 0;
+}
+
+.sighting-card-description-div {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: justify;
+    letter-spacing: 0.075em;
+
+    color: #949ea0;
+
+    height: 70px;
+
+    overflow: hidden;
+}
+
+.sighting-card-body {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.sighting-card-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.action-icons {
+    width: 15px;
+    object-fit: scale-down;
+}
+
+.sighting-card-single-action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    /* identical to box height, or 100% */
+
+    text-align: justify;
+
+    color: #949ea0;
+}
