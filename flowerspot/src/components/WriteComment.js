@@ -1,18 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { postComment } from "../apis/CommentsApi";
 import "./style/WriteComment.css";
 
-function WriteComment({ sightingId, userData }) {
+function WriteComment({ sightingId, userData, inputFocus }) {
     const [text, setText] = useState("");
     const [publishEnable, setPublishEnable] = useState(false);
+    const commentArea = useRef(null);
+
     useEffect(() => {
         if (!!text) {
             setPublishEnable(true);
         } else {
             setPublishEnable(false);
         }
-    });
+    }, [text]);
+
+    useEffect(() => {
+        if (inputFocus !== null) {
+            commentArea.current.focus();
+        }
+    }, [inputFocus]);
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -25,6 +33,7 @@ function WriteComment({ sightingId, userData }) {
         <div className="write-comment-component">
             <form onSubmit={onSubmit}>
                 <textarea
+                    ref={commentArea}
                     className="comment-textarea"
                     value={text}
                     onChange={(e) => setText(e.target.value)}

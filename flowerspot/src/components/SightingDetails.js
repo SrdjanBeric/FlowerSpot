@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Map from "ol/Map";
 import View from "ol/View";
@@ -34,6 +34,7 @@ function SightingDetails({
 
     const [flower, setFlower] = useState(null);
     const [user, setUser] = useState(null);
+    const [inputFocus, setInputFocus] = useState(null);
 
     useEffect(() => {
         fetchSighting(id);
@@ -54,6 +55,13 @@ function SightingDetails({
             `https://maps.google.com/?q=${sightingData?.sighting?.latitude},${sightingData?.sighting?.longitude}`,
             "_blank"
         );
+    };
+
+    const myRef = useRef(null);
+
+    const executeScroll = () => {
+        myRef.current.scrollIntoView();
+        setInputFocus(!inputFocus);
     };
 
     if (sightingData.sighting != null) {
@@ -121,7 +129,10 @@ function SightingDetails({
                             14 Comments
                         </p>
                         {!!userData.id && (
-                            <button className="sighting-details-add-comment">
+                            <button
+                                onClick={executeScroll}
+                                className="sighting-details-add-comment"
+                            >
                                 Add Comment
                             </button>
                         )}
@@ -130,8 +141,11 @@ function SightingDetails({
                         <CommentContainer comments={commentsData?.comments} />
                     </div>
                     {!!userData.id && (
-                        <div className="write-comment-div">
-                            <WriteComment sightingId={id} />
+                        <div ref={myRef} className="write-comment-div">
+                            <WriteComment
+                                inputFocus={inputFocus}
+                                sightingId={id}
+                            />
                         </div>
                     )}
                 </div>
