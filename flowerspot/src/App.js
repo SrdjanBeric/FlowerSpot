@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import FlowerDetails from "./components/FlowerDetails";
 import SightingDetails from "./components/SightingDetails";
+import Comment from "./components/Comment";
 
 function App() {
     return (
@@ -27,6 +28,7 @@ function App() {
                             path="/sighting/:id"
                             element={<SightingDetails />}
                         />
+                        <Route path="/comment" element={<Comment />} />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </Router>

@@ -14,12 +14,12 @@ import { fromLonLat, Projection } from "ol/proj";
 import { Icon, Style } from "ol/style";
 import { defaults } from "ol/control";
 import markerIceon from "../images/pl-icon-location.png";
-import flowerImage from "../images/flower.png";
 import profilePicture from "../images/my-profile-picture.png";
 import commentIcon from "../images/comment.png";
 import favoriteIcon from "../images/favorite.png";
 import { connect } from "react-redux";
 import { fetchSighting } from "../redux/sighting/sightingActions";
+import CommentContainer from "./CommentContainer";
 
 function SightingDetails({ fetchSighting, sightingData }) {
     let { id } = useParams();
@@ -105,6 +105,20 @@ function SightingDetails({ fetchSighting, sightingData }) {
                         </div>
                     </div>
                 </div>
+                <div className="sighting-details-comment-section">
+                    <hr></hr>
+                    <div className="comments-number-and-add-comment">
+                        <p className="sighting-details-comments-number">
+                            14 Comments
+                        </p>
+                        <button className="sighting-details-add-comment">
+                            Add Comment
+                        </button>
+                    </div>
+                    <div className="sighting-details-comments">
+                        <CommentContainer />
+                    </div>
+                </div>
             </div>
         );
     } else if (sightingData.error !== "") {
@@ -129,6 +143,7 @@ function SightingDetails({ fetchSighting, sightingData }) {
         const markers = new VectorLayer({
             source: new VectorSource(),
         });
+        markers.setZIndex(3);
         const map = new Map({
             target: "map",
             layers: [
