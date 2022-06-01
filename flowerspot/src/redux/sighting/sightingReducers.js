@@ -16,15 +16,19 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: true,
+                sighting: null,
+                error: "",
             };
         case FETCH_SIGHTING_SUCCESS:
             return {
+                ...state,
                 loading: false,
                 sighting: action.payload,
                 error: "",
             };
         case FETCH_SIGHTING_FAILURE:
             return {
+                ...state,
                 loading: false,
                 sighting: null,
                 error: action.payload,

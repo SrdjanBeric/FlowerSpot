@@ -1,11 +1,13 @@
 import React from "react";
-import flowerImage from "../images/flower.png";
+import { useNavigate } from "react-router-dom";
 import profilePicture from "../images/my-profile-picture.png";
 import commentIcon from "../images/comment.png";
 import favoriteIcon from "../images/favorite.png";
 import "./style/SightingCard.css";
 
 function SightingCard({ info }) {
+    const navigate = useNavigate();
+
     const {
         comments_count,
         description,
@@ -16,9 +18,13 @@ function SightingCard({ info }) {
         picture,
         user,
     } = info;
-    console.log(picture);
+
+    const clickHandler = () => {
+        navigate(`/sighting/${id}`);
+    };
+
     return (
-        <div className="sighting-card">
+        <div onClick={clickHandler} className="sighting-card">
             <img className="sighting-card-image" src={picture} />
             <div className="sighting-card-body">
                 <div className="sighting-card-header">

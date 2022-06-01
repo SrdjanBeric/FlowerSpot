@@ -31,7 +31,14 @@ function App() {
                             path="/sighting/:id"
                             element={<SightingDetails />}
                         />
-                        <Route path="/sightings" element={<SightingList />} />
+                        <Route
+                            path="/sightings/:page"
+                            element={<SightingList />}
+                        />
+                        <Route
+                            path="/sightings"
+                            element={<Navigate to="/sightings/1" replace />}
+                        />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </Router>

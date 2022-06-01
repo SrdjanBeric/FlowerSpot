@@ -158,6 +158,7 @@ function SightingDetails({
     }
 
     function initMap(lat, long) {
+        console.log("MAPA:", lat, long);
         const iconStyle = new Style({
             image: new Icon({
                 anchor: [0.5, 150],
