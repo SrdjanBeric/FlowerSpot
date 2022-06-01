@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./style/NewSighting.css";
 import Map from "ol/Map";
 import View from "ol/View";
@@ -16,8 +16,15 @@ import { defaults } from "ol/control";
 import markerIceon from "../images/pl-icon-location.png";
 
 function NewSighting() {
+    const inputFile = useRef(null);
+
     const [long, setLong] = useState(0);
     const [lat, setLat] = useState(0);
+    const [picture, setPicture] = useState(null);
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [enableSubmit, setEnableSubmit] = useState(false);
+
     const markers = new VectorLayer({
         source: new VectorSource(),
     });
@@ -25,6 +32,38 @@ function NewSighting() {
     useEffect(() => {
         initMap(0, 0);
     }, []);
+
+    useEffect(() => {
+        validation();
+    }, [long]);
+    useEffect(() => {
+        validation();
+    }, [lat]);
+    useEffect(() => {
+        validation();
+    }, [title]);
+    useEffect(() => {
+        validation();
+    }, [description]);
+    useEffect(() => {
+        validation();
+    }, [picture]);
+
+    const validation = () => {
+        if (
+            long === 0 ||
+            lat === 0 ||
+            !title ||
+            !description ||
+            picture === null
+        ) {
+            console.log("FALSE");
+            setEnableSubmit(false);
+            return;
+        }
+        setEnableSubmit(true);
+        console.log("TRUE");
+    };
 
     const initMap = (lat, long) => {
         const iconStyle = new Style({
@@ -75,6 +114,19 @@ function NewSighting() {
         markers.getSource().addFeature(marker);
     };
 
+    const onButtonAddImageClick = () => {
+        // `current` points to the mounted file input element
+        inputFile.current.click();
+    };
+
+    const onChangeFile = (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        var file = event.target.files[0];
+        console.log(file);
+        setPicture({ file }); /// if you want to upload latter
+    };
+
     return (
         <div className="new-sighting-content">
             <div id="map" className="map" />
@@ -89,7 +141,14 @@ function NewSighting() {
                 </div>
                 <div className="new-sighting-card-first-row">
                     <div className="new-sighting-card-input-div">
-                        <input className="new-sighting-card-title-input" />
+                        <input
+                            className="new-sighting-card-title-input"
+                            type="text"
+                            value={title}
+                            onChange={(e) => {
+                                setTitle(e.target.value);
+                            }}
+                        />
                         <span className="new-sighting-card-input-span">
                             Title of the sighting
                         </span>
@@ -122,18 +181,41 @@ function NewSighting() {
                             Latitude
                         </span>
                     </div>
-                    <button className="new-sighting-card-add-photo">
-                        Add a Photo
-                    </button>
+                    <div style={{ width: "100%" }}>
+                        <input
+                            type="file"
+                            id="file"
+                            accept="image/*"
+                            ref={inputFile}
+                            onChange={onChangeFile.bind(this)}
+                            style={{ display: "none" }}
+                        />
+                        <button
+                            onClick={onButtonAddImageClick}
+                            className="new-sighting-card-add-photo"
+                        >
+                            Add a Photo
+                        </button>
+                    </div>
                 </div>
                 <div className="new-sighting-card-description-div">
-                    <textarea className="new-sighting-card-description" />
+                    <textarea
+                        className="new-sighting-card-description"
+                        type="text"
+                        value={description}
+                        onChange={(e) => {
+                            setDescription(e.target.value);
+                        }}
+                    />
                     <span className="new-sighting-card-input-span">
                         Write a description...
                     </span>
                 </div>
                 <div style={{ width: "100%" }}>
-                    <button className="new-sighting-card-create-new-sighting">
+                    <button
+                        disabled={!enableSubmit}
+                        className="new-sighting-card-create-new-sighting"
+                    >
                         Create new Sighting
                     </button>
                 </div>

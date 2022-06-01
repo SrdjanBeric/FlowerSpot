@@ -121,9 +121,8 @@
 
     color: #df9186;
 
-    width: 200px;
+    width: 100%;
     height: 50px;
-    margin-left: 30px;
 }
 
 .new-sighting-card-description-div {
@@ -167,4 +166,13 @@
     width: 200px;
     border: none;
     float: right;
+}
+
+.new-sighting-card-create-new-sighting:hover {
+    transform: scale(1.02);
+}
+
+.new-sighting-card-create-new-sighting:disabled {
+    transform: scale(1);
+    background: linear-gradient(270deg, #f0cbc4 0%, #ebbdb7 100%);
 }
