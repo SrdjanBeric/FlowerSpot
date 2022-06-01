@@ -17,6 +17,7 @@ import Comment from "./components/Comment";
 import WriteComment from "./components/WriteComment";
 import SightingCard from "./components/SightingCard";
 import SightingList from "./components/SightingList";
+import NewSighting from "./components/NewSighting";
 
 function App() {
     return (
@@ -39,6 +40,7 @@ function App() {
                             path="/sightings"
                             element={<Navigate to="/sightings/1" replace />}
                         />
+                        <Route path="/newSighting" element={<NewSighting />} />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </Router>

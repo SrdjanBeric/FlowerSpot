@@ -1,0 +1,170 @@
+.new-sighting-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-sighting-card {
+    position: absolute;
+    top: 324px;
+    height: 567px;
+    width: 1180px;
+    background: #ffffff;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+    column-gap: 50px;
+    padding: 46px 30px 72px 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    row-gap: 20px;
+}
+
+.new-sighting-card-header {
+}
+
+.new-sighting-card-heaeder-title {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 40px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #949ea0;
+}
+
+.new-sighting-card-header-description {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 17px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #949ea0;
+
+    mix-blend-mode: normal;
+    opacity: 0.7;
+}
+
+.new-sighting-card-first-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 20px;
+}
+
+.new-sighting-card-title-input {
+    background: #f5f6f7;
+    border: 1px solid #dfe5ea;
+    border-radius: 3px;
+    padding: 26px 15px 11px 15px;
+    width: 550px;
+    height: 50px;
+}
+
+.new-sighting-card-input-div {
+    position: relative;
+}
+
+.new-sighting-card-input-span {
+    position: absolute;
+    top: 11px;
+    left: 15px;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 10px;
+    /* identical to box height, or 100% */
+
+    color: #949ea0;
+}
+
+.new-sighting-card-coordinates-input {
+    background: #f5f6f7;
+    border: 1px solid #dfe5ea;
+    border-radius: 3px;
+    padding: 26px 15px 11px 15px;
+    width: 150px;
+    height: 50px;
+}
+
+.new-sighting-card-add-photo {
+    background: #ffffff;
+    mix-blend-mode: normal;
+    border: 1px solid #df9186;
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+    border-radius: 3px;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #df9186;
+
+    width: 200px;
+    height: 50px;
+    margin-left: 30px;
+}
+
+.new-sighting-card-description-div {
+    width: 100%;
+    position: relative;
+}
+
+.new-sighting-card-description {
+    width: 100%;
+    background: #f5f6f7;
+    border: 1px solid #dfe5ea;
+    border-radius: 3px;
+
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    /* or 133% */
+
+    color: #334144;
+    height: 150px;
+    padding: 30px 20px 40px 20px;
+}
+
+.new-sighting-card-create-new-sighting {
+    background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+    border-radius: 3px;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #ffffff;
+    height: 50px;
+    width: 200px;
+    border: none;
+    float: right;
+}
