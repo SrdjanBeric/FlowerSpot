@@ -25,7 +25,11 @@ function FlowerCard({ info }) {
             }}
         >
             <div className="bookmark-icon-div">
-                <img className="bookmark-icon" src={bookmark} />
+                <img
+                    onClick={() => console.log("CLICK")}
+                    className="bookmark-icon"
+                    src={bookmark}
+                />
             </div>
             <div className="content">
                 <h3 className="card-title">{name}</h3>

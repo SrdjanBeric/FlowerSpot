@@ -88,7 +88,10 @@ function Navigationbar({ getMyInfo, userData }) {
                     >
                         Latest Sightings
                     </button>
-                    <button className="nav-button header-text">
+                    <button
+                        className="nav-button header-text"
+                        onClick={() => navigate("/favorites/1")}
+                    >
                         Favorites
                     </button>
                     <button

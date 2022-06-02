@@ -7,7 +7,7 @@
 .flower-profile-picture {
     width: 280px;
     height: 350px;
-    background-size: cover;
+    object-fit: cover;
     background-repeat: no-repeat;
 }
 
@@ -97,6 +97,10 @@
 
 .flower-detail-bookmark-icon {
     width: 70px;
+}
+
+.flower-detail-bookmark-icon:hover {
+    transform: scale(1.04);
 }
 
 .flower-detail-bookmark-sighting {

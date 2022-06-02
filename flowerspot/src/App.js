@@ -18,6 +18,7 @@ import WriteComment from "./components/WriteComment";
 import SightingCard from "./components/SightingCard";
 import SightingList from "./components/SightingList";
 import NewSighting from "./components/NewSighting";
+import Favorites from "./components/Favorites";
 
 function App() {
     return (
@@ -43,6 +44,10 @@ function App() {
                         <Route
                             path="/newSighting/:flower_id"
                             element={<NewSighting />}
+                        />
+                        <Route
+                            path="/favorites/:page"
+                            element={<Favorites />}
                         />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>

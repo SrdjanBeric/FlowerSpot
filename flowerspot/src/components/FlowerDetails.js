@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import flowerProfile from "../images/flower-profile.png";
 import flowerBackground from "../images/flower-detail-background.png";
 import bookmark from "../images/bookmark.png";
+import bookmarkTrue from "../images/bookmark-true.png";
 import "./style/FlowerDetails.css";
 import { fetchFlower } from "../redux/singleFlower/singleFlowerActions";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { postFavoriteFlower } from "../apis/FlowersAPI";
 function FlowerDetails({ flowerData, fetchFlower }) {
     let { id } = useParams();
     const navigate = useNavigate();
@@ -16,7 +17,12 @@ function FlowerDetails({ flowerData, fetchFlower }) {
         fetchFlower(id);
     }, []);
 
+    const favoriteClick = () => {
+        postFavoriteFlower(id);
+    };
+
     if (flowerData.flower != null) {
+        console.log(flowerData.flower);
         return (
             <div className="flower-details-content">
                 <div className="flower-details-upper-content">
@@ -37,6 +43,7 @@ function FlowerDetails({ flowerData, fetchFlower }) {
                                     <img
                                         className="flower-detail-bookmark-icon"
                                         src={bookmark}
+                                        onClick={favoriteClick}
                                     />
                                     <button className="flower-detail-sighting-button">
                                         {flowerData.flower.sightings} sightings
@@ -53,7 +60,7 @@ function FlowerDetails({ flowerData, fetchFlower }) {
                         <div className="flower-detail-right-align">
                             <button
                                 className="flower-detail-add-new-sighting-button"
-                                onClick={() => navigate("/newSighting")}
+                                onClick={() => navigate(`/newSighting/${id}`)}
                             >
                                 + Add New Sighting
                             </button>

@@ -186,7 +186,7 @@ function SightingDetails({
                 center: fromLonLat([long, lat]),
                 zoom: 18,
                 maxZoom: 20,
-                minZoom: 10,
+                minZoom: 5,
             }),
             controls: defaults({
                 attribution: false,

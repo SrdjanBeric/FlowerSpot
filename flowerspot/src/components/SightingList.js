@@ -16,7 +16,7 @@ function SightingList({ fetchSightings, sightingsData }) {
     }, []);
 
     const clickAddNewSighting = () => {
-        navigate(`/newSighting`);
+        navigate(`/newSighting/1`);
     };
 
     return (

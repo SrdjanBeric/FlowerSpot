@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 function HomePage({ flowersData, fetchFlowers, fetchSearchFlowers }) {
     const [flowers, setFlowers] = useState([]);
     const [previousQuery, setPreviousQuery] = useState("");
-    const [pageNumber, setPageNumber] = useState(2);
+    const [pageNumber, setPageNumber] = useState(1);
 
     useEffect(() => {
         fetchFlowers(pageNumber);
