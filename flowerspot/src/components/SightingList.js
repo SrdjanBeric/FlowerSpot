@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 
 function SightingList({ fetchSightings, sightingsData }) {
     let { page } = useParams();
+    const isSignedIn = !!localStorage.getItem("token");
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -35,12 +37,14 @@ function SightingList({ fetchSightings, sightingsData }) {
                             Explore between more than 8.427 sightings
                         </p>
                     </div>
-                    <button
-                        className="sighting-list-header-button"
-                        onClick={clickAddNewSighting}
-                    >
-                        + Add New Sighting
-                    </button>
+                    {isSignedIn && (
+                        <button
+                            className="sighting-list-header-button"
+                            onClick={clickAddNewSighting}
+                        >
+                            + Add New Sighting
+                        </button>
+                    )}
                 </div>
             </div>
             <SightingContainer sightings={sightingsData?.sightings} />

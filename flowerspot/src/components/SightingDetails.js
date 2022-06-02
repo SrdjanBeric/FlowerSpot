@@ -22,6 +22,7 @@ import { fetchSighting } from "../redux/sighting/sightingActions";
 import { fetchComments } from "../redux/comments/commentActions";
 import CommentContainer from "./CommentContainer";
 import WriteComment from "./WriteComment";
+import { useNavigate } from "react-router-dom";
 
 function SightingDetails({
     fetchSighting,
@@ -31,6 +32,7 @@ function SightingDetails({
     userData,
 }) {
     let { id } = useParams();
+    const navigate = useNavigate();
 
     const [flower, setFlower] = useState(null);
     const [user, setUser] = useState(null);
@@ -89,12 +91,16 @@ function SightingDetails({
                             <img
                                 style={{ width: "50px", height: "50px" }}
                                 src={profilePicture}
+                                onClick={() => navigate(`/user/${user.id}`)}
                             />
                             <div className="sighting-info-content-header-title">
                                 <p className="sighting-info-content-flower">
                                     {flower?.name}
                                 </p>
-                                <p className="sighting-info-content-owner">
+                                <p
+                                    className="sighting-info-content-owner"
+                                    onClick={() => navigate(`/user/${user.id}`)}
+                                >
                                     by {user?.full_name}
                                 </p>
                             </div>

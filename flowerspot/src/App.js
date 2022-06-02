@@ -22,6 +22,7 @@ import Favorites from "./components/Favorites";
 import UserProfile from "./components/UserProfile";
 
 function App() {
+    const isSignedIn = !!localStorage.getItem("token");
     return (
         <Provider store={store}>
             <div className="main-page">
@@ -42,14 +43,18 @@ function App() {
                             path="/sightings"
                             element={<Navigate to="/sightings/1" replace />}
                         />
-                        <Route
-                            path="/newSighting/:flower_id"
-                            element={<NewSighting />}
-                        />
-                        <Route
-                            path="/favorites/:page"
-                            element={<Favorites />}
-                        />
+                        {isSignedIn && (
+                            <>
+                                <Route
+                                    path="/newSighting/:flower_id"
+                                    element={<NewSighting />}
+                                />
+                                <Route
+                                    path="/favorites/:page"
+                                    element={<Favorites />}
+                                />
+                            </>
+                        )}
                         <Route
                             path="/user/:user_id"
                             element={<UserProfile />}

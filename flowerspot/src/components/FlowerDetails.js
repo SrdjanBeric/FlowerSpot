@@ -12,6 +12,7 @@ import { postFavoriteFlower } from "../apis/FlowersAPI";
 function FlowerDetails({ flowerData, fetchFlower }) {
     let { id } = useParams();
     const navigate = useNavigate();
+    const isSignedIn = !!localStorage.getItem("token");
 
     useEffect(() => {
         fetchFlower(id);
@@ -58,12 +59,16 @@ function FlowerDetails({ flowerData, fetchFlower }) {
                             </div>
                         </div>
                         <div className="flower-detail-right-align">
-                            <button
-                                className="flower-detail-add-new-sighting-button"
-                                onClick={() => navigate(`/newSighting/${id}`)}
-                            >
-                                + Add New Sighting
-                            </button>
+                            {isSignedIn && (
+                                <button
+                                    className="flower-detail-add-new-sighting-button"
+                                    onClick={() =>
+                                        navigate(`/newSighting/${id}`)
+                                    }
+                                >
+                                    + Add New Sighting
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>
