@@ -49,7 +49,12 @@ function Navigationbar({ getMyInfo, userData }) {
 
             {userData.id === "" ? (
                 <div className="right-align">
-                    <button className="nav-button header-text">Flowers</button>
+                    <button
+                        className="nav-button header-text"
+                        onClick={() => navigate("/")}
+                    >
+                        Flowers
+                    </button>
                     <button
                         onClick={() => navigate("/sightings")}
                         className="nav-button header-text"
@@ -71,7 +76,12 @@ function Navigationbar({ getMyInfo, userData }) {
                 </div>
             ) : (
                 <div className="right-align">
-                    <button className="nav-button header-text">Flowers</button>
+                    <button
+                        className="nav-button header-text"
+                        onClick={() => navigate("/")}
+                    >
+                        Flowers
+                    </button>
                     <button
                         onClick={() => navigate("/sightings")}
                         className="nav-button header-text"

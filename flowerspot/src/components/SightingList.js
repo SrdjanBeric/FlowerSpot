@@ -5,13 +5,19 @@ import SightingContainer from "./SightingContainer";
 import "./style/SightingList.css";
 import { fetchSightings } from "../redux/sightings/sightingsActions";
 import backgroundImage from "../images/flower-detail-background.png";
+import { useNavigate } from "react-router-dom";
 
 function SightingList({ fetchSightings, sightingsData }) {
     let { page } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchSightings(page);
     }, []);
+
+    const clickAddNewSighting = () => {
+        navigate(`/newSighting`);
+    };
 
     return (
         <div>
@@ -29,7 +35,10 @@ function SightingList({ fetchSightings, sightingsData }) {
                             Explore between more than 8.427 sightings
                         </p>
                     </div>
-                    <button className="sighting-list-header-button">
+                    <button
+                        className="sighting-list-header-button"
+                        onClick={clickAddNewSighting}
+                    >
                         + Add New Sighting
                     </button>
                 </div>

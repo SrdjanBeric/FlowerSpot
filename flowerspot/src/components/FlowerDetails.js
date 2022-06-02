@@ -6,8 +6,11 @@ import bookmark from "../images/bookmark.png";
 import "./style/FlowerDetails.css";
 import { fetchFlower } from "../redux/singleFlower/singleFlowerActions";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 function FlowerDetails({ flowerData, fetchFlower }) {
     let { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchFlower(id);
@@ -48,7 +51,10 @@ function FlowerDetails({ flowerData, fetchFlower }) {
                             </div>
                         </div>
                         <div className="flower-detail-right-align">
-                            <button className="flower-detail-add-new-sighting-button">
+                            <button
+                                className="flower-detail-add-new-sighting-button"
+                                onClick={() => navigate("/newSighting")}
+                            >
                                 + Add New Sighting
                             </button>
                         </div>

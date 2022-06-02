@@ -14,9 +14,12 @@ import { fromLonLat, Projection, transform } from "ol/proj";
 import { Icon, Style } from "ol/style";
 import { defaults } from "ol/control";
 import markerIceon from "../images/pl-icon-location.png";
+import { postSighting } from "../apis/SightingsApi";
+import { useNavigate } from "react-router-dom";
 
 function NewSighting() {
     const inputFile = useRef(null);
+    const navigate = useNavigate();
 
     const [long, setLong] = useState(0);
     const [lat, setLat] = useState(0);
@@ -57,12 +60,10 @@ function NewSighting() {
             !description ||
             picture === null
         ) {
-            console.log("FALSE");
             setEnableSubmit(false);
             return;
         }
         setEnableSubmit(true);
-        console.log("TRUE");
     };
 
     const initMap = (lat, long) => {
@@ -123,104 +124,128 @@ function NewSighting() {
         event.stopPropagation();
         event.preventDefault();
         var file = event.target.files[0];
-        console.log(file);
-        setPicture({ file }); /// if you want to upload latter
+        // console.log("PHOTO", file);
+        setPicture(file); /// if you want to upload latter
+    };
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        const sighting = {
+            flower_id: 1,
+            name: title,
+            description: description,
+            latitude: lat,
+            longitude: long,
+            picture: picture,
+        };
+        postSighting(sighting)
+            ?.then((response) => {
+                navigate(`/sightings/1`);
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     return (
-        <div className="new-sighting-content">
-            <div id="map" className="map" />
-            <div className="new-sighting-card">
-                <div className="new-sighting-card-header">
-                    <p className="new-sighting-card-heaeder-title">
-                        Add New Sighting
-                    </p>
-                    <p className="new-sighting-card-header-description">
-                        Explore between more than 8.427 sightings
-                    </p>
-                </div>
-                <div className="new-sighting-card-first-row">
-                    <div className="new-sighting-card-input-div">
-                        <input
-                            className="new-sighting-card-title-input"
-                            type="text"
-                            value={title}
-                            onChange={(e) => {
-                                setTitle(e.target.value);
-                            }}
-                        />
-                        <span className="new-sighting-card-input-span">
-                            Title of the sighting
-                        </span>
+        <form onSubmit={onSubmit}>
+            <div className="new-sighting-content">
+                <div id="map" className="map" />
+                <div className="new-sighting-card">
+                    <div className="new-sighting-card-header">
+                        <p className="new-sighting-card-heaeder-title">
+                            Add New Sighting
+                        </p>
+                        <p className="new-sighting-card-header-description">
+                            Explore between more than 8.427 sightings
+                        </p>
                     </div>
-                    <div className="new-sighting-card-input-div">
-                        <input
-                            className="new-sighting-card-coordinates-input"
-                            type="text"
-                            disabled
-                            value={long}
-                            onChange={(e) => {
-                                setLong(e.target.value);
-                            }}
-                        />
-                        <span className="new-sighting-card-input-span">
-                            Longitude
-                        </span>
+                    <div className="new-sighting-card-first-row">
+                        <div className="new-sighting-card-input-div">
+                            <input
+                                className="new-sighting-card-title-input"
+                                type="text"
+                                value={title}
+                                onChange={(e) => {
+                                    setTitle(e.target.value);
+                                }}
+                            />
+                            <span className="new-sighting-card-input-span">
+                                Title of the sighting
+                            </span>
+                        </div>
+                        <div className="new-sighting-card-input-div">
+                            <input
+                                className="new-sighting-card-coordinates-input"
+                                type="text"
+                                disabled
+                                value={long}
+                                onChange={(e) => {
+                                    setLong(e.target.value);
+                                }}
+                            />
+                            <span className="new-sighting-card-input-span">
+                                Longitude
+                            </span>
+                        </div>
+                        <div className="new-sighting-card-input-div">
+                            <input
+                                className="new-sighting-card-coordinates-input"
+                                type="text"
+                                disabled
+                                value={lat}
+                                onChange={(e) => {
+                                    setLat(e.target.value);
+                                }}
+                            />
+                            <span className="new-sighting-card-input-span">
+                                Latitude
+                            </span>
+                        </div>
+                        <div style={{ width: "100%" }}>
+                            <input
+                                type="file"
+                                id="file"
+                                accept="image/*"
+                                ref={inputFile}
+                                onChange={onChangeFile.bind(this)}
+                                style={{ display: "none" }}
+                            />
+                            <button
+                                type="button"
+                                onClick={onButtonAddImageClick}
+                                className="new-sighting-card-add-photo"
+                            >
+                                Add a Photo
+                            </button>
+                        </div>
                     </div>
-                    <div className="new-sighting-card-input-div">
-                        <input
-                            className="new-sighting-card-coordinates-input"
+                    <div className="new-sighting-card-description-div">
+                        <textarea
+                            className="new-sighting-card-description"
                             type="text"
-                            disabled
-                            value={lat}
+                            value={description}
                             onChange={(e) => {
-                                setLat(e.target.value);
+                                setDescription(e.target.value);
                             }}
                         />
                         <span className="new-sighting-card-input-span">
-                            Latitude
+                            Write a description...
                         </span>
                     </div>
                     <div style={{ width: "100%" }}>
-                        <input
-                            type="file"
-                            id="file"
-                            accept="image/*"
-                            ref={inputFile}
-                            onChange={onChangeFile.bind(this)}
-                            style={{ display: "none" }}
-                        />
                         <button
-                            onClick={onButtonAddImageClick}
-                            className="new-sighting-card-add-photo"
+                            disabled={!enableSubmit}
+                            className="new-sighting-card-create-new-sighting"
+                            type="submit"
                         >
-                            Add a Photo
+                            Create new Sighting
                         </button>
                     </div>
                 </div>
-                <div className="new-sighting-card-description-div">
-                    <textarea
-                        className="new-sighting-card-description"
-                        type="text"
-                        value={description}
-                        onChange={(e) => {
-                            setDescription(e.target.value);
-                        }}
-                    />
-                    <span className="new-sighting-card-input-span">
-                        Write a description...
-                    </span>
-                </div>
-                <div style={{ width: "100%" }}>
-                    <button
-                        disabled={!enableSubmit}
-                        className="new-sighting-card-create-new-sighting"
-                    >
-                        Create new Sighting
-                    </button>
-                </div>
             </div>
-        </div>
+        </form>
     );
 }
 
