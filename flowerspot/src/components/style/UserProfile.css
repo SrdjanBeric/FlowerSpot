@@ -1,0 +1,71 @@
+.user-profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 50px 20px 50px 20px;
+}
+
+.user-profile-header {
+    width: 100%;
+    height: 140px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding-left: 30px;
+    padding-right: 50px;
+}
+
+.user-profile-header-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 100%;
+}
+
+.user-profile-header-name {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 25px;
+    /* identical to box height, or 100% */
+
+    color: #334144;
+    margin: 0;
+    margin-bottom: 3px;
+}
+
+.user-profile-header-number-of-sightings {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 13px;
+    /* identical to box height, or 100% */
+
+    color: #949ea0;
+    margin: 0;
+}
+
+.user-profile-header-report-button {
+    float: right;
+    background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+    border-radius: 3px;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+
+    color: #ffffff;
+
+    border: none;
+    width: 110px;
+    height: 50px;
+}

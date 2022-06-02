@@ -2,7 +2,8 @@ import React from "react";
 import SightingCard from "./SightingCard";
 import "./style/SightingContainer.css";
 function SightingContainer({ sightings }) {
-    const renderSightings = sightings?.sightings?.map((sighting) => {
+    console.log(sightings);
+    const renderSightings = sightings?.map((sighting) => {
         return (
             <div key={sighting.id}>
                 <SightingCard info={sighting} />

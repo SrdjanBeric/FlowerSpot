@@ -43,7 +43,7 @@ function SightingList({ fetchSightings, sightingsData }) {
                     </button>
                 </div>
             </div>
-            <SightingContainer sightings={sightingsData} />
+            <SightingContainer sightings={sightingsData?.sightings} />
         </div>
     );
 }
