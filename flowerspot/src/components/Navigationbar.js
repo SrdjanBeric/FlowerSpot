@@ -96,7 +96,7 @@ function Navigationbar({ getMyInfo, userData }) {
                     </button>
                     <button
                         className="nav-button header-text"
-                        onClick={() => setPersonalInfo(true)}
+                        onClick={() => navigate(`/user/${userData.id}`)}
                     >
                         {userData.first_name} {userData.last_name}
                     </button>

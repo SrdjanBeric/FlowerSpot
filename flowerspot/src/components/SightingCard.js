@@ -24,10 +24,17 @@ function SightingCard({ info }) {
     };
 
     return (
-        <div onClick={clickHandler} className="sighting-card">
-            <img className="sighting-card-image" src={picture} />
+        <div className="sighting-card">
+            <img
+                onClick={clickHandler}
+                className="sighting-card-image"
+                src={picture}
+            />
             <div className="sighting-card-body">
-                <div className="sighting-card-header">
+                <div
+                    onClick={() => navigate(`/user/${user.id}`)}
+                    className="sighting-card-header"
+                >
                     <img
                         style={{ width: "40px", height: "40px" }}
                         src={profilePicture}
@@ -39,11 +46,14 @@ function SightingCard({ info }) {
                         </p>
                     </div>
                 </div>
-                <div className="sighting-card-description-div">
+                <div
+                    onClick={clickHandler}
+                    className="sighting-card-description-div"
+                >
                     {description}
                 </div>
                 <hr></hr>
-                <div className="sighting-card-actions">
+                <div onClick={clickHandler} className="sighting-card-actions">
                     <div className="sighting-card-single-action">
                         <img className="action-icons" src={commentIcon} />
                         {comments_count} Comments
