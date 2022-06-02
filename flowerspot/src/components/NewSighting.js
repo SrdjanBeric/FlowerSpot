@@ -16,10 +16,12 @@ import { defaults } from "ol/control";
 import markerIceon from "../images/pl-icon-location.png";
 import { postSighting } from "../apis/SightingsApi";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function NewSighting() {
     const inputFile = useRef(null);
     const navigate = useNavigate();
+    let { flower_id } = useParams();
 
     const [long, setLong] = useState(0);
     const [lat, setLat] = useState(0);
@@ -131,21 +133,17 @@ function NewSighting() {
     const onSubmit = (event) => {
         event.preventDefault();
         const sighting = {
-            flower_id: 1,
+            flower_id: flower_id,
             name: title,
             description: description,
             latitude: lat,
             longitude: long,
             picture: picture,
         };
-        postSighting(sighting)
-            ?.then((response) => {
-                navigate(`/sightings/1`);
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        postSighting(sighting)?.then((response) => {
+            navigate(`/sightings/1`);
+            console.log(response);
+        });
     };
 
     return (

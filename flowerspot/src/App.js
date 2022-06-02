@@ -40,7 +40,10 @@ function App() {
                             path="/sightings"
                             element={<Navigate to="/sightings/1" replace />}
                         />
-                        <Route path="/newSighting" element={<NewSighting />} />
+                        <Route
+                            path="/newSighting/:flower_id"
+                            element={<NewSighting />}
+                        />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </Router>

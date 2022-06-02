@@ -19,6 +19,6 @@ export const postSighting = async (sighting) => {
             return response;
         })
         .catch((error) => {
-            return error;
+            console.log(error.message);
         });
 };
